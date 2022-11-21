@@ -9,7 +9,7 @@ const BreadDetailsScreen = ({navigation}) => {
         <View style={styles.container}>
         <Text style={styles.title}>Bread Details</Text>
         <Pressable style={styles.button} onPress={() => navigation.popToTop()}><Text style={styles.textButton}>Back to Categories</Text></Pressable>
-        <Pressable style={styles.button} onPress={() => navigation.goBack()}><Text style={styles.textButton}>Back</Text></Pressable>
+        <Pressable style={{...styles.button , backgroundColor: colors.primary}} onPress={() => navigation.goBack()}><Text style={{...styles.textButton, color:colors.white}}>Back</Text></Pressable>
         </View>
     )
 }
