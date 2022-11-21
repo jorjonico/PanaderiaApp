@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     },
     button:{
         marginTop: 20,
-        backgroundColor: colors.grisgit ,
+        backgroundColor: colors.gris,
         height: 40,
         width: '50%',
         justifyContent: 'center',
