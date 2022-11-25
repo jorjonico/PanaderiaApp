@@ -19,7 +19,7 @@ export default ShopNavigator = () => {
             }}>
                 <Stack.Screen name="Categories" component={CategoriesScreen} options={{title: 'Panadería La Flauta'}}/>
                 <Stack.Screen name="Bread" component={CategoryBreadScreen} options={({route}) => ({title: route.params.name,})}/>
-                <Stack.Screen name="Details" component={BreadDetailsScreen}/>
+                <Stack.Screen name="Details" component={BreadDetailsScreen} options={({route}) => ({title: route.params.name,})}/>
             </Stack.Navigator>
         </NavigationContainer>
     )

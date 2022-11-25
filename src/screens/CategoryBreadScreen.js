@@ -1,45 +1,32 @@
-import { Button, Pressable, StyleSheet, Text, View } from 'react-native'
-
+import {BREADS} from '../data/bread'
+import BreadItem from '../assets/components/BreadItem'
+import {
+FlatList
+} from 'react-native'
 import React from 'react'
-import colors from '../assets/constants/colors'
-import fontSize from '../assets/constants/fontSize'
 
-const CategoryBreadScreen = ({navigation}) => {
+const CategoryBreadScreen = ({navigation, route}) => {
+
+    const breads = BREADS.filter(bread => bread.category === route.params.categoryID)
+
+    const handleSelectedCategory = (item) => {
+        navigation.navigate('Details', {
+            productID: item.id,
+            name: item.name,
+        })
+    };
+
+    const renderBreadItem = ({item}) => (
+        <BreadItem item={item} onSelected={handleSelectedCategory}/>
+    );
+    
     return (
-        <View style={styles.container}>
-        <Text style={styles.title}>Bread Category</Text>
-        <Pressable style={styles.button} onPress={() => navigation.navigate('Details')}><Text style={styles.textButton}>Details</Text></Pressable>
-        </View>
+        <FlatList 
+        data={breads}
+        keyExtractor={(item) => item.id}
+        renderItem={renderBreadItem}
+        />
     )
 }
 
 export default CategoryBreadScreen
-
-const styles = StyleSheet.create({
-    container:{
-        flex: 1,
-        backgroundColor: colors.white,
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 20,
-    },
-    title:{
-        fontFamily:'LoraBold',
-        fontSize: fontSize.h1,
-        color: colors.acento,
-    },
-    button:{
-        marginTop: 20,
-        backgroundColor: colors.gris,
-        height: 40,
-        width: '50%',
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 10,   
-    },
-    textButton:{
-        fontFamily:'LoraReg',
-        fontSize: fontSize.h2,
-        color: colors.primary,
-    },
-})
