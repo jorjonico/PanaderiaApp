@@ -1,7 +1,9 @@
+import { StyleSheet, Text, View } from 'react-native';
+
 import CartNavigator from './CartNavigator';
+import Ionicons from '@expo/vector-icons/Ionicons';
 import { NavigationContainer } from '@react-navigation/native';
 import ShopNavigator from './ShopNavigator';
-import { StyleSheet } from 'react-native';
 import colors from '../assets/constants/colors';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -17,8 +19,22 @@ export default MyTabs = () => {
                     tabBarShowLabel: false, 
                     tabBarStyle: styles.tabBar
                 }}>
-                <BottomTabs.Screen name='ShopTab' component={ShopNavigator}/>
-                <BottomTabs.Screen name='CartTab' component={CartNavigator}/>
+                <BottomTabs.Screen name='ShopTab' component={ShopNavigator} options={{
+                    tabBarIcon:({focus}) => (
+                        <View style={styles.item}>
+                            <Ionicons name="home" size={25} color={colors.primary} />
+                            <Text>Tienda</Text>
+                        </View>
+                    )
+                }}/>
+                <BottomTabs.Screen name='CartTab' component={CartNavigator} options={{
+                    tabBarIcon:({focus}) => (
+                        <View style={styles.item}>
+                            <Ionicons name="cart" size={25} color={colors.primary} />
+                            <Text>Carrito</Text>
+                        </View>
+                    )
+                }}/>
             </BottomTabs.Navigator>
         </NavigationContainer>
     );
@@ -37,6 +53,11 @@ const styles = StyleSheet.create({
         right: 20,
         borderRadius: 15,
         height: 90,
+    },
+    item: {
+        flex:1,
+        justifyContent:'center',
+        alignItems:'center',    
     },
 })
 
