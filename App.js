@@ -1,6 +1,6 @@
+import BottomTabNavigator from './src/navigation/BottomTabNavigator';
 import ShopNavigator from './src/navigation/ShopNavigator';
 import { useFonts } from 'expo-font';
-
 export default function App() {
   const [fontsLoaded] = useFonts({
     'LoraReg': require('./src/assets/fonts/Lora-Regular.ttf'),
@@ -11,5 +11,5 @@ export default function App() {
     return null
   };
   
-  return <ShopNavigator />
+  return <BottomTabNavigator />
 }
