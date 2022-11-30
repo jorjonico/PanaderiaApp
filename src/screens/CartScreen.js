@@ -3,6 +3,7 @@ import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native
 import { CART } from '../data/cart'
 import CartItem from '../assets/components/CartItem'
 import React from 'react'
+import colors from '../assets/constants/colors'
 
 const CartScreen = () => {
     const items = CART
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 12,
-        backgroundColor: '#fff',
+        backgroundColor: colors.white,
         paddingBottom: 120,
         
     },
@@ -58,11 +59,11 @@ const styles = StyleSheet.create({
     },
     footer: {
         padding: 12,
-        borderTopColor: '#ccc',
+        borderTopColor: colors.primary,
         borderTopWidth: 1,
     },
     confirm:{
-        backgroundColor: '#ccc',
+        backgroundColor:colors.secondary,
         borderRadius: 10,
         padding: 10,
         flexDirection: 'row',

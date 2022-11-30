@@ -1,5 +1,4 @@
 import CartScreen from "../screens/CartScreen";
-import { NavigationContainer } from "@react-navigation/native";
 import colors from "../assets/constants/colors";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 

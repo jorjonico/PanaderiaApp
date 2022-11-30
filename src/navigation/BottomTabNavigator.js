@@ -22,7 +22,7 @@ export default MyTabs = () => {
                 <BottomTabs.Screen name='ShopTab' component={ShopNavigator} options={{
                     tabBarIcon:({focus}) => (
                         <View style={styles.item}>
-                            <Ionicons name="home" size={25} color={colors.primary} />
+                            <Ionicons name="ios-home-outline" size={25} color={colors.primary} />
                             <Text>Tienda</Text>
                         </View>
                     )
@@ -30,7 +30,7 @@ export default MyTabs = () => {
                 <BottomTabs.Screen name='CartTab' component={CartNavigator} options={{
                     tabBarIcon:({focus}) => (
                         <View style={styles.item}>
-                            <Ionicons name="cart" size={25} color={colors.primary} />
+                            <Ionicons name="ios-cart-outline" size={25} color={colors.primary} />
                             <Text>Carrito</Text>
                         </View>
                     )
