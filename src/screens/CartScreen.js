@@ -4,6 +4,7 @@ import { CART } from '../data/cart'
 import CartItem from '../assets/components/CartItem'
 import React from 'react'
 import colors from '../assets/constants/colors'
+import fontSize from '../assets/constants/fontSize'
 
 const CartScreen = () => {
     const items = CART
@@ -32,7 +33,7 @@ const CartScreen = () => {
             </View>
             <View style={styles.footer}>
                 <TouchableOpacity style={styles.confirm}>
-                    <Text>Confirmar</Text>
+                    <Text style={styles.final}>Confirmar</Text>
                     <View style={styles.total}>
                         <Text style={styles.text}>Total: </Text>
                         <Text style={styles.text}>{total}</Text>
@@ -76,5 +77,11 @@ const styles = StyleSheet.create({
     text:{
         fontSize: 18,
         padding: 8,
+    },
+    final:{
+        fontFamily:'LoraReg',
+        color:'#000',
+        fontSize:fontSize.h2,
     }
+    
 });

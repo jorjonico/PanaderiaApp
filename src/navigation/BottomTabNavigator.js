@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import ShopNavigator from './ShopNavigator';
 import colors from '../assets/constants/colors';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import fontSize from '../assets/constants/fontSize';
 
 const BottomTabs = createBottomTabNavigator();
 
@@ -23,7 +24,7 @@ export default MyTabs = () => {
                     tabBarIcon:({focus}) => (
                         <View style={styles.item}>
                             <Ionicons name="ios-home-outline" size={25} color={colors.primary} />
-                            <Text>Tienda</Text>
+                            <Text style={styles.tabFont}>Tienda</Text>
                         </View>
                     )
                 }}/>
@@ -31,7 +32,7 @@ export default MyTabs = () => {
                     tabBarIcon:({focus}) => (
                         <View style={styles.item}>
                             <Ionicons name="ios-cart-outline" size={25} color={colors.primary} />
-                            <Text>Carrito</Text>
+                            <Text style={styles.tabFont}>Carrito</Text>
                         </View>
                     )
                 }}/>
@@ -59,5 +60,10 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         alignItems:'center',    
     },
+    tabFont: {
+        fontFamily:'LoraReg',
+        color:colors.primary,
+        fontSize:fontSize.h2,
+    }
 })
 
