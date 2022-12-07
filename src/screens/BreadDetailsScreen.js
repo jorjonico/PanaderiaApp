@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux'
 
 const BreadDetailsScreen = ({navigation}) => {
 
-    const bread = useSelector((state) => state.bread.selected)
+    const bread = useSelector((state) => state.breads.selected)
     
     return (
         <View style={styles.container}>

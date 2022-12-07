@@ -6,8 +6,8 @@ import BreadItem from '../assets/components/BreadItem'
 import { FlatList } from 'react-native'
 
 const CategoryBreadScreen = ({navigation, route}) => {
-    const dispatch = useDispatch()
-    const categoryBreads = useSelector ((state) => state.breads.filteredBread)
+    const dispatch = useDispatch();
+    const categoryBreads = useSelector((state) => state.breads.filteredBread);
     const category = useSelector((state) => state.categories.selected);
 
     useEffect(() => {
