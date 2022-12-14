@@ -1,19 +1,30 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native'
+import { Button, Pressable, StyleSheet, Text, View } from 'react-native'
+import { useDispatch, useSelector } from 'react-redux'
 
 import React from 'react'
+import { addItem } from '../store/actions/cart.action'
 import colors from '../assets/constants/colors'
 import fontSize from '../assets/constants/fontSize'
-import { useSelector } from 'react-redux'
 
 const BreadDetailsScreen = ({navigation}) => {
-
+    const dispatch = useDispatch();
     const bread = useSelector((state) => state.breads.selected)
+
+    const handleAddItemCart = () => {
+        dispatch(addItem(bread));
+    };
     
     return (
         <View style={styles.container}>
-        <Text style={styles.title}>Bread Details</Text>
-        <Pressable style={styles.button} onPress={() => navigation.popToTop()}><Text style={styles.textButton}>Back to Categories</Text></Pressable>
-        <Pressable style={{...styles.button , backgroundColor: colors.primary}} onPress={() => navigation.goBack()}><Text style={{...styles.textButton, color:colors.white}}>Back</Text></Pressable>
+            <View style={styles.screen}>
+                <Text style={styles.title}>{bread.name}</Text>
+                <Text style={styles.description}>{bread.description}</Text>
+                <Text style={styles.price}>Precio: ${bread.price}</Text>
+                <View style={styles.button}>
+                    <Button title='Agregar al Carrito' onPress={handleAddItemCart}/>
+                </View>
+                
+            </View>
         </View>
     )
 }
@@ -26,25 +37,25 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 20,
+        padding: 10,
     },
-    title:{
-        fontFamily:'LoraBold',
-        fontSize: fontSize.h1,
-        color: colors.primary,
-    },
-    button:{
-        marginTop: 20,
-        backgroundColor: colors.gris,
-        height: 40,
-        width: '50%',
+    screen:{
+        flex: 0.9,
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 10,   
     },
-    textButton:{
-        fontFamily:'LoraReg',
-        fontSize: fontSize.h2,
-        color: colors.primary,
+    title:{
+        fontSize: fontSize.h1,
+        fontFamily: 'LoraBold',
     },
+    description:{
+        fontSize: fontSize.h2
+    },
+    price:{
+        fontSize: fontSize.h1,
+        fontFamily: 'LoraReg',
+    },
+    button:{
+        marginTop: 15,
+    }
 })
