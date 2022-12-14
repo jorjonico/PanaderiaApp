@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import CartNavigator from './CartNavigator';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { NavigationContainer } from '@react-navigation/native';
+import OrderNavigator from './OrderNavigator';
 import ShopNavigator from './ShopNavigator';
 import colors from '../assets/constants/colors';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -33,6 +34,14 @@ export default MyTabs = () => {
                         <View style={styles.item}>
                             <Ionicons name="ios-cart-outline" size={25} color={colors.primary} />
                             <Text style={styles.tabFont}>Carrito</Text>
+                        </View>
+                    )
+                }}/>
+                <BottomTabs.Screen name='OrderTab' component={OrderNavigator} options={{
+                    tabBarIcon:({focus}) => (
+                        <View style={styles.item}>
+                            <Ionicons name="list" size={25} color={colors.primary} />
+                            <Text style={styles.tabFont}>Ordenes</Text>
                         </View>
                     )
                 }}/>
