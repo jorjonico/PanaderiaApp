@@ -7,12 +7,12 @@ const initialState = {
 const OrderReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_ORDERS:
-            return{
+            return {
                 ...state,
                 list: action.payload,
             };
         default:
-            return state;
+        return state;
     }
 };
 

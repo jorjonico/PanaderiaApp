@@ -2,7 +2,6 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import CartNavigator from './CartNavigator';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { NavigationContainer } from '@react-navigation/native';
 import OrderNavigator from './OrderNavigator';
 import ShopNavigator from './ShopNavigator';
 import colors from '../assets/constants/colors';
@@ -13,7 +12,6 @@ const BottomTabs = createBottomTabNavigator();
 
 export default MyTabs = () => {
     return (
-        <NavigationContainer>
             <BottomTabs.Navigator 
                 initialRouteName='ShopTab'
                 screenOptions={{
@@ -46,7 +44,6 @@ export default MyTabs = () => {
                     )
                 }}/>
             </BottomTabs.Navigator>
-        </NavigationContainer>
     );
 };
 

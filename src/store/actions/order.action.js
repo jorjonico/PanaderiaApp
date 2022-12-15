@@ -6,18 +6,19 @@ export const getOrders = () => {
     return async (dispatch) =>{
         try{
             const response = await fetch(`${URL_API}/ordenes.json`, {
-                method: 'GET',
+                method: "GET",
                 headers: {
-                    "Content-Type": "application/json"
-                }, 
+                    "Content-Type": "application/json",
+                },
             });
 
-            const result = await response.json()
+            const result = await response.json();
             const orders = Object.keys(result).map((key) => ({
                 ...result[key],
                 id: key,
             }));
-            dispatch({type: GET_ORDERS, payload: orders})
+            console.log(orders)
+            dispatch({ type: GET_ORDERS, payload: orders });
         } catch (error) {
             console.log(error.message);
         }

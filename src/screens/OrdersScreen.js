@@ -8,26 +8,26 @@ import { useEffect } from 'react'
 
 const OrdersScreen = () => {
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     
     const orders = useSelector((state) => state.orders.list);
 
     useEffect(() => {
-        dispatch(getOrders())
-    }, [])
+        dispatch(getOrders());
+    }, []);
     
     const handleDeleteItem = () =>{
-        console.log('eliminar')
+        console.log('eliminar');
     };
-    const renderItem = ({item}) => {
+    const renderItem = ({item}) => (
         <OrderItem item={item} onDelete={handleDeleteItem}/>
-    };
+    );
     
     return (
         <View style={styles.container}>
             <FlatList 
                 data={orders}
-                keyExtractor={item => item.id.toString()}
+                keyExtractor={(item) => item.id.toString()}
                 renderItem={renderItem}
             />
         </View>
